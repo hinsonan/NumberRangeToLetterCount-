@@ -24,12 +24,24 @@ namespace NumberRangeToLetterCount
             //create an array that will hold all the ints from min to max
             int[] intArray = createIntArray(min, max);
 
-            //for each number in the array display the word for that number
-            Console.WriteLine(NumberToWords(98652));
-            /*foreach (int n in intArray)
+            //for each number in the array display the word for that number and put that in numberWords array
+            string[] numberWords = new string[(max - min) + 1];
+            
+            for(int i = 0; i < intArray.Length; i++)
+            {
+                numberWords[i] = NumberToWords(intArray[i]);
+            }
+
+
+            
+            ulong wordToNumberCount = 0;
+            for (int m = 0; m < numberWords.Length; m++)
             {
                 
-            }*/
+                wordToNumberCount += (ulong)numberWords[m].Length;
+            }
+
+            Console.WriteLine(wordToNumberCount);
 
 
 
