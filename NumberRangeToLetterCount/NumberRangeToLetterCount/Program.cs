@@ -12,14 +12,23 @@ namespace NumberRangeToLetterCount
 
         static void Main(string[] args)
         {
+            int min;
+            int max;
 
+            Console.WriteLine("Please enter numbers between -100,000 and 100,000");
 
-            //get min and max values to calculate
-            Console.Write("Enter min: ");
-            int min = int.Parse(Console.ReadLine());
+            do
+            {
+                //get min and max values to calculate
+                Console.Write("Enter min: ");
+                 min = int.Parse(Console.ReadLine());
 
-            Console.Write("Enter max: ");
-            int max = int.Parse(Console.ReadLine());
+                Console.Write("Enter max: ");
+                 max = int.Parse(Console.ReadLine());
+
+                //validates that the user inputs the correct number
+            } while (((min | max) < -100000) | ((min | max) > 100000) | (min > max) | (max < min));
+
 
             //create an array that will hold all the ints from min to max
             int[] intArray = createIntArray(min, max);
@@ -72,6 +81,7 @@ namespace NumberRangeToLetterCount
         //convert number to word
         public static string NumberToWords(int number)
         {
+           
             //when the number is 0 make its word value zero
             if (number == 0)
                 return "zero";
