@@ -27,7 +27,7 @@ namespace NumberRangeToLetterCount
                  max = int.Parse(Console.ReadLine());
 
                 //validates that the user inputs the correct number
-            } while (((min | max) < -100000) | ((min | max) > 100000) | (min > max) | (max < min));
+            } while ((min < -100000) || (max > 100000) || min > max);
 
 
             //create an array that will hold all the ints from min to max
@@ -50,7 +50,7 @@ namespace NumberRangeToLetterCount
                 wordToNumberCount += (ulong)numberWords[m].Length;
             }
 
-            Console.WriteLine(wordToNumberCount);
+            Console.WriteLine("Total number of words added: " + wordToNumberCount);
 
 
 
@@ -91,7 +91,7 @@ namespace NumberRangeToLetterCount
 
             string words = "";
             //these next block of if statments will divide a number then call the function against the divided number
-            //then it gives the remainder and keeps going down the if statements and calling the function over until the number is converted
+            //then it gives the remainder and keeps going down the if statements and calling the function over until the number is converted to words
             if ((number / 1000000) > 0)
             {
                 words += NumberToWords(number / 1000000) + "million";
@@ -114,8 +114,12 @@ namespace NumberRangeToLetterCount
             {
                 
 
-                var unitsMap = new[] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
-                var tensMap = new[] { "zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+                var unitsMap = new[] { "zero", "one", "two", "three", "four", "five", "six",
+                    "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen",
+                    "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
+
+                var tensMap = new[] { "zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty",
+                    "seventy", "eighty", "ninety" };
 
                 if (number < 20)
                     words += unitsMap[number];
